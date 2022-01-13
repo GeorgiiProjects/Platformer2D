@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _speed;
     [SerializeField] private float _jumpForce;
 
+    private const string _RUN = "Speed";
     private float _move;
     private bool _isFacingRight = true;
     private bool _isOnGround = true;
@@ -24,7 +25,7 @@ public class PlayerController : MonoBehaviour
     {
         _move = Input.GetAxis("Horizontal");
 
-        _animator.SetFloat("Speed", Mathf.Abs(_move));
+        _animator.SetFloat(_RUN, Mathf.Abs(_move));
 
         _rigidBody2D.velocity = new Vector2(_move * _speed, _rigidBody2D.velocity.y);
 
